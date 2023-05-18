@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+<center>
+<h3>My Profile</h3></center>
+
+<div>
+  <form action="/success.html">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+      <label for="lname">Address</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your Address..">
+
+      <label for="lname">DOB</label>
+    <input type="date" id="dateofbirth" name="DOB" placeholder="Your DOB."><br><br>
+
+      <label for="phonenumber">Phone Num</label>
+    <input type="text" id="phonenumber" name="lastname" placeholder="Your phone num..">
+
+    <label for="state">state</label>
+    <select id="state" name="sate">
+      <option value="wayanad">wayanad</option>
+      <option value="kannur">kannur</option>
+      <option value="kozhicode">kozhicode</option>
+
+    </select>
+
+    <li><a href="success">
+    <input type="submit" value="Submit"></a></li>
+  </form>
+</div>
+
+</body>
+</html>
+

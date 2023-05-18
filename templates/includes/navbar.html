@@ -1,0 +1,102 @@
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/">HAPPY WEDDING</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+
+          <li><a href="/" class="active">Home</a></li>
+<li class="dropdown {% if 'shop' in request.path %} active {% endif %}"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              {% for cat in links %}
+              <li><a href="{{cat.get_url}}">{{cat.name}}</a></li>
+              {% endfor %}
+              </li>
+
+            </ul>
+          </li>
+<!--          <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>-->
+<!--            <ul>-->
+<!--              <li class="dropdown"><a href="Bridal"><span>Bridal</span> <i class="bi bi-chevron-right"></i></a>-->
+<!--                <ul>-->
+<!--                  <li><a href="ShoppingApp/shopping/shopping">Wedding makeover</a></li>-->
+<!--&lt;!&ndash;                  <li><a href="ShoppingApp/shopping/shopping">Pre-wedding grooming services</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="ShoppingApp/shopping/shopping">Exclusive bridal packages</a></li>&ndash;&gt;-->
+<!--                </ul>-->
+<!--              </li>-->
+<!--              <li class="dropdown"><a href="Bridal"><span>Decoration</span> <i class="bi bi-chevron-right"></i></a>-->
+<!--                <ul>-->
+<!--                  <li><a href="ShoppingApp/shopping/shopping">Simple Decoration</a></li>-->
+<!--&lt;!&ndash;                  <li><a href="ShoppingApp/shopping/shopping">Flower arrangement</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="ShoppingApp/shopping/shopping">Backdrops</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <li><a href="ShoppingApp/shopping/shopping"></a></li>&ndash;&gt;-->
+<!--                </ul>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </li>-->
+          <li><a href="gallery">Gallery</a></li>
+            <li><a href="{% url 'cart:my_form' %}"></a></li>
+
+          {% if user.is_authenticated %}
+          <li><a href="appointment"></a></li>
+          <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{% static 'images/user.png' %}" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="my_profile">user details</a></li>
+            <li><a class="dropdown-item" href="logout">Logout</a></li>
+          </ul>
+          </div>
+<!--          <li><a href="ShoppingApp/shopping/shopping" class="getstarted">Services</a></li>-->
+          {% else %}
+          <li><a href="register">Register</a></li>
+          <li><a href="login">Login</a></li>
+          <li><a href="login"></a></li>
+<!--          <li><a href="login" class="getstarted"></a></li>-->
+          {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
+              <a class="active" href="#">{{user.first_name}}{{user.last_name}}</a>
+              {% endif %}
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
